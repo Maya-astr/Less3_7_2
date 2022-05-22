@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 
 
-public class Main {
+public class ClassCreator {
     public  <T> T fileToObject(String filename, Class<T>clazz){
         T instance;
         try {
@@ -36,12 +36,18 @@ public class Main {
                 }
             }
         } catch (Exception e) {
-            throw new RuntimeException("conversion error in the class", e));
+            throw new RuntimeException("conversion error in the class", e);
         }
         return instance;
     }
 
     public static void main(String[] args) {
+        final ClassCreator creator = new ClassCreator();
+        //final Empl empl = creator.fileToObject("employee.txt", Empl.class);
+        final fifthElement element = creator.fileToObject("5element.txt", fifthElement.class);
+        //System.out.println("employee = " + empl);
+        System.out.println("5 element = " + element);
+
     }
 
 }
